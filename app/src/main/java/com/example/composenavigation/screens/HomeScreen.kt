@@ -11,17 +11,18 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier,
     onNavigateToSongs: () -> Unit,
     onNavigateToFavourites: () -> Unit,
     onNavigateToSearch: () -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Button(
-            modifier = Modifier.testTag("go_to_songs"),
+            modifier = Modifier.testTag("test_tag_go_to_songs"),
             onClick = { onNavigateToSongs() },
         ) {
             Text(text = "Go to Songs")

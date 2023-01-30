@@ -1,6 +1,8 @@
 package com.example.composenavigation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,6 +29,7 @@ fun MainNavigation(
         startDestination = Screen.Home.route
     ) {
         composable(Screen.Home.route) { HomeScreen(
+            modifier = Modifier.testTag("test_tag_home_screen"),
             onNavigateToSongs = { navController.navigate(Screen.Songs.route) {
                 launchSingleTop = true
             } },

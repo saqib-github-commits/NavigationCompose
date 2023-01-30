@@ -1,9 +1,8 @@
 package com.example.composenavigation
 
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import com.example.composenavigation.navigation.MainNavigation
@@ -30,13 +29,12 @@ class NavigationTests {
 
     @Test
     fun appNavHost_verifyStartDestination() {
-        val route = navController.currentDestination?.route
-        Assert.assertEquals(route, Screen.Home.route)
+        composeTestRule.onNodeWithTag("test_tag_home_screen").assertIsDisplayed()
     }
 
     @Test
-    fun appNavHost_verifyNavigationToSongs() {
-        composeTestRule.onNodeWithTag("go_to_songs").performClick()
+    fun appNavHost_verifyGoToSongsButton() {
+        composeTestRule.onNodeWithTag("test_tag_go_to_songs").performClick()
         val route = navController.currentDestination?.route
         Assert.assertEquals(route, Screen.Songs.route)
     }
