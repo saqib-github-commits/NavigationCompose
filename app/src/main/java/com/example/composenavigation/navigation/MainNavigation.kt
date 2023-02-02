@@ -29,7 +29,6 @@ fun MainNavigation(
         startDestination = Screen.Home.route
     ) {
         composable(Screen.Home.route) { HomeScreen(
-            modifier = Modifier.testTag("test_tag_home_screen"),
             onNavigateToSongs = { navController.navigate(Screen.Songs.route) {
                 launchSingleTop = true
             } },

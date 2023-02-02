@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier,
+    modifier: Modifier = Modifier.testTag("test_tag_home_screen"),
     onNavigateToSongs: () -> Unit,
     onNavigateToFavourites: () -> Unit,
     onNavigateToSearch: () -> Unit
