@@ -38,7 +38,7 @@ fun MainNavigation(
         composable(Screen.Songs.route) { SongsScreen() }
         composable(Screen.Favourites.route) { FavouritesScreen() }
         composable(Screen.Search.route) { SearchScreen(
-            onNavigateToSongs = { navController.navigate(Screen.Songs.route) {
+            onNavigateToSongs = { navController.navigate (Screen.Songs.route) {
                 // pop up everything to the "home" destination before navigating
                 // to "songs" destination
                 popUpTo(Screen.Home.route)

@@ -6,16 +6,22 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import com.example.composenavigation.extension.observeLifecycleEvents
+import com.example.composenavigation.viewModels.HomeViewModel
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier.testTag("test_tag_home_screen"),
+    viewModel: HomeViewModel = HomeViewModel(),
     onNavigateToSongs: () -> Unit,
     onNavigateToFavourites: () -> Unit,
     onNavigateToSearch: () -> Unit
 ) {
+    viewModel.observeLifecycleEvents( LocalLifecycleOwner.current.lifecycle)
+
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
